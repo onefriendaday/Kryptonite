@@ -1,26 +1,6 @@
-=Kryptonite - a lightweight Ruby on Rails CMS.
+=Kryptonite. A really simple CMS
 
-Kryptonite is a plugin that provides scaffolding generators and helper functions to quickly create a clean and minimal CRUD (Create, Read, Update and Delete) interface for your data. It also comes with a pre-rolled user authentication system. As Kryptonite is completely decoupled from the front-end, it can be added to a new or existing Rails project, or used as a standalone CMS to drive platforms built on other technologies.
-
-This version of Kryptonite is designed for Ruby on Rails 3.x. For a legacy version that is compatible with Rails 2.x, see: http://github.com/spoiledmilk/kryptonite
-
-==Disclaimer
-
-Kryptonite is the in-house CMS framework used by digital agency Spoiled Milk and is being used in many live production websites. This open source project is an attempt to extract and share the core.
-
-Kryptonite is available to use under the terms of the MIT License. See the LICENSE file for more details.
-
-Kryptonite is sponsored by Spoiled Milk (http://www.spoiledmilk.dk) and maintained by Russell Quinn (http://www.russellquinn.com)
-
-Kryptonite 3.x is built for Ruby on Rails 3 and has the following major updates:
-
-* Authentication changed to use Authlogic
-* Supplied as a gem
-* Runs as an Engine
-* Now properly namespaced
-* Timezone support
-* Rails 3 compatibility fixes
-* Many other tweaks and improvements over Kryptonite 2.x
+Comming
 
 ==Installation
 
@@ -32,7 +12,7 @@ Kryptonite 3.x is built for Ruby on Rails 3 and has the following major updates:
 	
 - Then use bundler to install Kryptonite and its dependencies:
 
-  sudo bundle install
+  bundle install
 	
 — If you have just created a new project, then remember to add your database details to /config/database.yml at this point.
 
@@ -226,3 +206,4 @@ e.g.
 ==Acknowledgements
 
 The icons used in Kryptonite were created by Mark James and are licensed under the Creative Commons Attribution 2.5 License (http://creativecommons.org/licenses/by/2.5/). The full series of icons are available here: http://www.famfamfam.com/lab/icons/silk/
+This Project is inspired by the Casein CMS.
