@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /kryptonite
+Disallow: /admin
+
+Allow: /

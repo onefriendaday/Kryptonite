@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>Welcome to <%= kryptonite_config_website_name %></title>
+		<%= stylesheet_link_tag "/kryptonite/stylesheets/login" %>
+		<%= javascript_include_tag "/kryptonite/javascripts/jquery", "/kryptonite/javascripts/login", "/kryptonite/javascripts/rails" %>
+		<%= csrf_meta_tag %>
+	</head>
+	<body>
+		<div id="header">
+			<h1><%= image_tag(kryptonite_config_logo, :alt => kryptonite_config_website_name) %></h1>
+		</div>
+		<div id="content">
+			<%= yield %>
+		</div>
+		<div id="footer">
+			<p>Based on <%= link_to "Kryptonite", "http://www.kryptonitecms.com" %> <%= kryptonite_get_short_version_string %> technology,
+			an open-source project initiated by <a href="http://www.spoiledmilk.dk">Spoiled Milk</a>.</p>
+		</div>
+	</body>
+</html>

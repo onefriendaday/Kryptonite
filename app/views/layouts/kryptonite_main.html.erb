@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title><%= kryptonite_generate_page_title %></title>
+		<% kryptonite_config_stylesheet_includes.each do |stylesheet| %>
+			<%= stylesheet_link_tag(stylesheet) %>
+		<% end %>
+		
+		<% kryptonite_config_javascript_includes.each do |javascript| %>
+			<%= javascript_include_tag(javascript) %>
+		<% end %>
+
+		<%= csrf_meta_tag %>
+	</head>
+	<body>
+		<div id="header">
+			<h1><%= link_to(image_tag(kryptonite_config_logo, :alt => kryptonite_config_website_name), :controller => :kryptonite) %></h1>
+			<div id="dashboard">
+				<% if @session_user != nil %>
+				<ul>
+					<li>Hello <%= @session_user.name %></li>
+					<li><%= Time.zone.name %></li>
+					<li><%= link_to 'Profile', kryptonite_user_path(@session_user) %></li>
+					<li class="lastItem"><%= link_to 'Logout', kryptonite_user_session_path, :method => :delete %></li>
+				</ul>	
+				<% end %>
+			</div>
+			<div id="navigation">
+				<ul>
+					<%= render :partial => '/kryptonite/layouts/left_navigation' %>
+				</ul>		
+			</div>
+			<div id="altNavigation">
+				<ul>
+					<% if @session_user.is_admin? %>
+						<li><%= link_to 'Users', kryptonite_users_path %></li>
+					<% end %>
+					<%= render :partial => '/kryptonite/layouts/right_navigation' %>
+				</ul>
+			</div>
+		</div>
+		<div id="rightBar">
+			<div class="spacer"></div>
+			<ul>
+				<%= yield :sidebar %>
+			</ul>
+		</div>
+		<div id="content">
+			<div id="data">
+				<% if flash[:warning] %>
+					<div id="error">
+						<%= flash[:warning] %>
+					</div>
+				<% end %>
+				<% if flash[:notice] %>
+					<div id="notice">
+						<%= flash[:notice] %>
+					</div>
+				<% end %>
+				<%= yield %>
+			</div>
+		</div>
+	</body>
+</html>
