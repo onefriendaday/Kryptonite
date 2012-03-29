@@ -17,12 +17,12 @@ module Kryptonite
         end
 
         if users.length > 1
-          flash[:notice] = "Multiple accounts were found. Emails have been sent to " + params[:recover_email] + " with instructions on how to reset your passwords"
+          flash[:notice] = t(:multiple_acctounts_notice, :email=>params[:recover_email])
         else
-          flash[:notice] = "An email has been sent to " + params[:recover_email] + " with instructions on how to reset your password"
+          flash[:notice] = t(:email_sent_notice, :email=>params[:recover_email])
         end
       else
-        flash[:warning] = "There is no user with that email"
+        flash[:warning] = t(:no_user_warning)
       end
 
       redirect_to new_kryptonite_user_session_url
@@ -35,14 +35,14 @@ module Kryptonite
     def update
       
       if params[:kryptonite_user][:password].empty? || params[:kryptonite_user][:password_confirmation].empty?
-        flash.now[:warning] = "A field has been left empty"
+        flash.now[:warning] = t(:field_empty_warning)
       else
       
         @reset_user.password = params[:kryptonite_user][:password]
         @reset_user.password_confirmation = params[:kryptonite_user][:password_confirmation]
       
         if @reset_user.save
-          flash[:notice] = "Password successfully updated"
+          flash[:notice] = t(:password_updated_notice)
           redirect_to new_kryptonite_user_session_url
           return
         end
@@ -58,7 +58,7 @@ module Kryptonite
       @reset_user = Kryptonite::User.find_using_perishable_token params[:token]
       
       unless @reset_user
-        flash[:warning] = "Your account could not be located. Try to copy and paste the URL directly from the email."
+        flash[:warning] = t(:account_not_located_warning)
         redirect_to new_kryptonite_user_session_url
       end
     end

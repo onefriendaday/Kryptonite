@@ -27,21 +27,21 @@
 
 	<div class="text">
 		<p>
-			<%= f.label :password, "Password:" %>
+			<%= f.label :password, "#{t(:password)}:" %>
 		  <%= f.password_field :password, :class => "kryptoniteTextField" %>
 		</p>
 	</div>
 
 	<div class="text">
 		<p>
-			<%= f.label :password_confirmation, "Confirm password:" %>
+			<%= f.label :password_confirmation, "#{t(:confirm_password)}:" %>
 		  <%= f.password_field :password_confirmation, :class => "kryptoniteTextField" %>
 		</p>
 	</div>
 	
 	<div class="submit_remember">
 		<p>
-			<%= f.submit "Reset password", :class => "kryptoniteSubmit" %>
+			<%= f.submit t(:reset_password), :class => "kryptoniteSubmit" %>
 		</p>
 	</div>
 

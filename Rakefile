@@ -27,11 +27,11 @@ begin
   Jeweler::Tasks.new do |gem|
     gem.name = "kryptonite"
     gem.summary = "A lightweight Ruby on Rails CMS."
-    gem.description = "Kryptonite is an open-source CMS for Ruby on Rails, originally developed by Spoiled Milk."
+    gem.description = "Kryptonite is an open-source CMS for Ruby on Rails, originally developed by Spoiled Milk. Extended by Alexander Feiglstorfer."
     gem.files = Dir["Gemfile", "MIT-LICENSE", "Rakefile", "README.rdoc", "PUBLIC_VERSION.yml", "{lib}/**/*", "{app}/**/*", "{config}/**/*"]
-    gem.email = "mail@russellquinn.com"
-    gem.authors = ["Russell Quinn", "Spoiled Milk"]
-    gem.homepage = "http://github.com/spoiledmilk/kryptonite3"
+    gem.email = "delooks@gmail.com"
+    gem.authors = ["Alexander Feiglstorfer", "M2Hero"]
+    gem.homepage = "http://github.com/onefriendaday/Kryptonite"
     gem.add_dependency("will_paginate", ["3.0.0"])
     gem.add_dependency("authlogic", ["3.0.3"])
   end

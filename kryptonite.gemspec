@@ -4,14 +4,14 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{kryptonite}
-  s.version = "3.1.11"
+  s.name = "kryptonite"
+  s.version = "0.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Russell Quinn", "Spoiled Milk"]
-  s.date = %q{2011-09-15}
-  s.description = %q{Kryptonite is an open-source CMS for Ruby on Rails, originally developed by Spoiled Milk.}
-  s.email = %q{mail@russellquinn.com}
+  s.authors = ["Alexander Feiglstorfer", "M2Hero"]
+  s.date = "2012-03-29"
+  s.description = "Kryptonite is an open-source CMS for Ruby on Rails, originally developed by Spoiled Milk. Extended by Alexander Feiglstorfer."
+  s.email = "delooks@gmail.com"
   s.extra_rdoc_files = [
     "README.rdoc"
   ]
@@ -40,9 +40,8 @@ Gem::Specification.new do |s|
     "app/views/kryptonite/users/show.html.erb",
     "app/views/layouts/kryptonite_auth.html.erb",
     "app/views/layouts/kryptonite_main.html.erb",
+    "config/locales/en.yml",
     "config/routes.rb",
-    "lib/kryptonite.rb",
-    "lib/kryptonite/engine.rb",
     "lib/generators/kryptonite/install/USAGE",
     "lib/generators/kryptonite/install/install_generator.rb",
     "lib/generators/kryptonite/install/templates/app/helpers/kryptonite/config_helper.rb",
@@ -63,11 +62,11 @@ Gem::Specification.new do |s|
     "lib/generators/kryptonite/scaffold/templates/views/new.html.erb",
     "lib/generators/kryptonite/scaffold/templates/views/show.html.erb",
     "lib/generators/kryptonite/update/USAGE",
-    "lib/generators/kryptonite/update/templates/public/kryptonite/images/kryptonite.png",
     "lib/generators/kryptonite/update/templates/public/kryptonite/images/header.png",
     "lib/generators/kryptonite/update/templates/public/kryptonite/images/icons/add.png",
     "lib/generators/kryptonite/update/templates/public/kryptonite/images/icons/delete.png",
     "lib/generators/kryptonite/update/templates/public/kryptonite/images/icons/table.png",
+    "lib/generators/kryptonite/update/templates/public/kryptonite/images/kryptonite.png",
     "lib/generators/kryptonite/update/templates/public/kryptonite/images/login/alertBg.png",
     "lib/generators/kryptonite/update/templates/public/kryptonite/images/login/background.png",
     "lib/generators/kryptonite/update/templates/public/kryptonite/images/login/bottom.png",
@@ -81,20 +80,22 @@ Gem::Specification.new do |s|
     "lib/generators/kryptonite/update/templates/public/kryptonite/images/rightNav.png",
     "lib/generators/kryptonite/update/templates/public/kryptonite/images/rightNavButton.png",
     "lib/generators/kryptonite/update/templates/public/kryptonite/images/visitSiteNav.png",
-    "lib/generators/kryptonite/update/templates/public/kryptonite/javascripts/kryptonite.js",
     "lib/generators/kryptonite/update/templates/public/kryptonite/javascripts/jquery.js",
+    "lib/generators/kryptonite/update/templates/public/kryptonite/javascripts/kryptonite.js",
     "lib/generators/kryptonite/update/templates/public/kryptonite/javascripts/login.js",
     "lib/generators/kryptonite/update/templates/public/kryptonite/javascripts/rails.js",
     "lib/generators/kryptonite/update/templates/public/kryptonite/stylesheets/elements.css",
     "lib/generators/kryptonite/update/templates/public/kryptonite/stylesheets/login.css",
     "lib/generators/kryptonite/update/templates/public/kryptonite/stylesheets/screen.css",
     "lib/generators/kryptonite/update/update_generator.rb",
+    "lib/kryptonite.rb",
+    "lib/kryptonite/engine.rb",
     "lib/railties/tasks.rake"
   ]
-  s.homepage = %q{http://github.com/spoiledmilk/kryptonite3}
+  s.homepage = "http://github.com/onefriendaday/Kryptonite"
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.5.3}
-  s.summary = %q{A lightweight Ruby on Rails CMS.}
+  s.rubygems_version = "1.8.19"
+  s.summary = "A lightweight Ruby on Rails CMS."
 
   if s.respond_to? :specification_version then
     s.specification_version = 3

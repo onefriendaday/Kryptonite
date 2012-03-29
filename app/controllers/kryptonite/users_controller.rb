@@ -7,12 +7,12 @@ module Kryptonite
     before_filter :needs_admin_or_current_user, :only => [:show, :destroy, :update, :update_password]
  
     def index
-      @kryptonite_page_title = "Users"
+      @kryptonite_page_title = t("users.page_title")
     	@users = Kryptonite::User.paginate :order => "login", :page => params[:page]
     end
  
     def new
-      @kryptonite_page_title = "Add a new user"
+      @kryptonite_page_title = t("users.add_new")
     	@kryptonite_user = Kryptonite::User.new
     	@kryptonite_user.time_zone = Rails.configuration.time_zone
     end
@@ -21,27 +21,27 @@ module Kryptonite
       @kryptonite_user = Kryptonite::User.new params[:kryptonite_user]
     
       if @kryptonite_user.save
-        flash[:notice] = "An email has been sent to " + @kryptonite_user.name + " with the new account details"
+        flash[:notice] = t("users.email_sent_with_details", :username=>@kryptonite_user.name)
         redirect_to kryptonite_users_path
       else
-        flash.now[:warning] = "There were problems when trying to create a new user"
+        flash.now[:warning] = t("users.problems_saving_warning")
         render :action => :new
       end
     end
   
     def show
     	@kryptonite_user = Kryptonite::User.find params[:id]
-    	@kryptonite_page_title = @kryptonite_user.name + " | View User"
+    	@kryptonite_page_title = @kryptonite_user.name + " | " + t("users.show")
     end
  
     def update
       @kryptonite_user = Kryptonite::User.find params[:id]
-      @kryptonite_page_title = @kryptonite_user.name + " | Update User"
+      @kryptonite_page_title = @kryptonite_user.name + " | " + t("users.update")
 
       if @kryptonite_user.update_attributes params[:kryptonite_user]
-        flash[:notice] = @kryptonite_user.name + " has been updated"
+        flash[:notice] = t("users.updated_notice", :username=>@kryptonite_user.name)
       else
-        flash.now[:warning] = "There were problems when trying to update this user"
+        flash.now[:warning] = t("users.problems_updating")
         render :action => :show
         return
       end
@@ -55,16 +55,16 @@ module Kryptonite
  
     def update_password
       @kryptonite_user = Kryptonite::User.find params[:id]
-      @kryptonite_page_title = @kryptonite_user.name + " | Update Password"
+      @kryptonite_page_title = @kryptonite_user.name + " | " + t("users.update_password")
        
       if @kryptonite_user.valid_password? params[:form_current_password]
         if @kryptonite_user.update_attributes params[:kryptonite_user]
-          flash.now[:notice] = "Your password has been changed"
+          flash.now[:notice] = t("users.password_changed_notice")
         else
-          flash.now[:warning] = "There were problems when trying to change the password"
+          flash.now[:warning] = t("users.problems_changing_password")
         end
       else
-        flash.now[:warning] = "The current password is incorrect"
+        flash.now[:warning] = t("users.password_incorrect")
       end
       
       render :action => :show
@@ -72,19 +72,19 @@ module Kryptonite
  
     def reset_password
       @kryptonite_user = Kryptonite::User.find params[:id]
-      @kryptonite_page_title = @kryptonite_user.name + " | Reset Password"
+      @kryptonite_page_title = @kryptonite_user.name + " | " + t("users.reset_password")
        
       @kryptonite_user.notify_of_new_password = true unless @kryptonite_user.id == @session_user.id
       
       if @kryptonite_user.update_attributes params[:kryptonite_user]
         if @kryptonite_user.id == @session_user.id
-          flash.now[:notice] = "Your password has been reset"
+          flash.now[:notice] = t("users.password_reseted")
         else    
-          flash.now[:notice] = "Password has been reset and " + @kryptonite_user.name + " has been notified by email"
+          flash.now[:notice] = t("users.password_reseted_and_emailed", :username=>@kryptonite_user.name)
         end
         
       else
-        flash.now[:warning] = "There were problems when trying to reset this user's password"
+        flash.now[:warning] = t("users.problems_reseting_password")
       end
       render :action => :show
     end
@@ -93,7 +93,7 @@ module Kryptonite
       user = Kryptonite::User.find params[:id]
       if user.is_admin? == false || Kryptonite::User.has_more_than_one_admin
         user.destroy
-        flash[:notice] = user.name + " has been deleted"
+        flash[:notice] = t("users.deleted", :username=>user.name)
       end
       redirect_to kryptonite_users_path
     end

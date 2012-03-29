@@ -1,6 +1,7 @@
 =Kryptonite. A really simple CMS
 
-Comming
+Coming
+
 
 ==Installation
 

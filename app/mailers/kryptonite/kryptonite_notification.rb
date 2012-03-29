@@ -11,7 +11,7 @@ module Kryptonite
   		@pass = pass
   		@from_text = kryptonite_config_website_name
   		
-  		mail(:to => kryptonite_user.email, :from => from, :subject => "[#{kryptonite_config_website_name}] New password")
+  		mail(:to => kryptonite_user.email, :from => from, :subject => t("new_password_subject", :website_name=>kryptonite_config_website_name))
   	end
   
   	def new_user_information from, kryptonite_user, host, pass
@@ -21,7 +21,7 @@ module Kryptonite
   		@pass = pass
   		@from_text = kryptonite_config_website_name
   		
-  		mail(:to => kryptonite_user.email, :from => from, :subject => "[#{kryptonite_config_website_name}] New user account")
+  		mail(:to => kryptonite_user.email, :from => from, :subject => t("new_account_subject", :website_name=>kryptonite_config_website_name))
   	end
   	
   	def password_reset_instructions from, kryptonite_user, host
@@ -32,7 +32,7 @@ module Kryptonite
       @reset_password_url = edit_kryptonite_password_reset_url + "/?token=#{kryptonite_user.perishable_token}"
       @from_text = kryptonite_config_website_name
 
-      mail(:to => kryptonite_user.email, :from => from, :subject => "[#{kryptonite_config_website_name}] Password reset instructions")
+      mail(:to => kryptonite_user.email, :from => from, :subject => t("password_reset_subject", :website_name=>kryptonite_config_website_name))
     end
 
   end

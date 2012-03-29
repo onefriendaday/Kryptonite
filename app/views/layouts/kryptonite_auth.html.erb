@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-		<title>Welcome to <%= kryptonite_config_website_name %></title>
+		<title><%=t "welcome_title", :website_name=>kryptonite_config_website_name %></title>
 		<%= stylesheet_link_tag "/kryptonite/stylesheets/login" %>
 		<%= javascript_include_tag "/kryptonite/javascripts/jquery", "/kryptonite/javascripts/login", "/kryptonite/javascripts/rails" %>
 		<%= csrf_meta_tag %>
@@ -17,8 +17,7 @@
 			<%= yield %>
 		</div>
 		<div id="footer">
-			<p>Based on <%= link_to "Kryptonite", "http://www.kryptonitecms.com" %> <%= kryptonite_get_short_version_string %> technology,
-			an open-source project initiated by <a href="http://www.spoiledmilk.dk">Spoiled Milk</a>.</p>
+			<p>Based on <%= link_to "Kryptonite", "http://www.m2hero.com" %> <%= kryptonite_get_short_version_string %> technology.</p>
 		</div>
 	</body>
 </html>

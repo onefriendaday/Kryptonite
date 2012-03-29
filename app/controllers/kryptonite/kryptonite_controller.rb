@@ -24,7 +24,7 @@ module Kryptonite
     end
 
   	def blank
-  		@kryptonite_page_title = "Welcome"
+  		@kryptonite_page_title = t(:home_page_title)
   	end
 
   private
