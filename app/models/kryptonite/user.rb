@@ -13,6 +13,8 @@ module Kryptonite
     acts_as_authentic { |c| c.validate_email_field = false }
 	 
     attr_accessor :notify_of_new_password
+    
+    attr_accessible :login, :name, :email, :time_zone, :access_level, :password, :password_confirmation
 	 
     after_create :send_create_notification
     after_update :send_update_notification

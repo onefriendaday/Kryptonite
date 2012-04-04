@@ -7,12 +7,12 @@
 	<%%= render :partial => 'kryptonite/<%= plural_name %>/form', :locals => { :f => f } %>
 	
 	<p class="submits">
-	  <%%= link_to t("scaffold.cancel"), kryptonite_<%= @plural_route %>_path, :class => 'cancel' %> or
-		<%%= f.submit t("scaffold.save_changes"), :class => "update" %>
+	  <%%= link_to t("scaffold_cancel"), kryptonite_<%= @plural_route %>_path, :class => 'cancel' %> or
+		<%%= f.submit t("scaffold_save_changes"), :class => "update" %>
 	</p>
 
 <%% end %>
 
 <%%= content_for :sidebar do %>
-	<li><%%= link_to "#{kryptonite_show_icon "table"}#{t("scaffold.back_to_list")}".html_safe, kryptonite_<%= @plural_route %>_path %></li>
+	<li><%%= link_to "#{kryptonite_show_icon "table"}#{t("scaffold_back_to_list")}".html_safe, kryptonite_<%= @plural_route %>_path %></li>
 <%% end %>

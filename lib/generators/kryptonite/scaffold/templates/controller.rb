@@ -13,12 +13,12 @@ module Kryptonite
     end
   
     def show
-      @kryptonite_page_title = t("scaffold.view", :model=>t("kryptonite.<%= plural_name %>.singular_name_down"))
+      @kryptonite_page_title = t("scaffold_view", :model=>t("kryptonite.<%= plural_name %>.singular_name_down"))
       @<%= singular_name %> = <%= class_name %>.find params[:id]
     end
  
     def new
-      @kryptonite_page_title = t("scaffold.add_new", :model=>t("kryptonite.<%= plural_name %>.singular_name_down"))
+      @kryptonite_page_title = t("scaffold_add_new", :model=>t("kryptonite.<%= plural_name %>.singular_name_down"))
     	@<%= singular_name %> = <%= class_name %>.new
     end
 
@@ -28,13 +28,13 @@ module Kryptonite
       respond_to do |format|
           if @<%= singular_name %>.save
             format.html { 
-              flash[:notice] = t("scaffold.created", :model=>t("kryptonite.<%= plural_name %>.singular_name_cap"))
+              flash[:notice] = t("scaffold_created", :model=>t("kryptonite.<%= plural_name %>.singular_name_cap"))
               redirect_to kryptonite_<%= @plural_route %>_path
             }
             format.json { respond_with_bip(@<%= singular_name %>) }
           else
             format.html { 
-              flash.now[:warning] = t("scaffold.problems_creating", :model=>t("kryptonite.<%= plural_name %>.singular_name_down"))
+              flash.now[:warning] = t("scaffold_problems_creating", :model=>t("kryptonite.<%= plural_name %>.singular_name_down"))
               render :action => :new
             }
             format.json { respond_with_bip(@<%= singular_name %>) }
@@ -43,20 +43,20 @@ module Kryptonite
     end
   
     def update
-      @kryptonite_page_title = t("scaffold.update", :model=>t("kryptonite.<%= plural_name %>.singular_name_down"))
+      @kryptonite_page_title = t("scaffold_update", :model=>t("kryptonite.<%= plural_name %>.singular_name_down"))
       
       @<%= singular_name %> = <%= class_name %>.find params[:id]
     
       respond_to do |format|
           if @<%= singular_name %>.update_attributes params[:<%= singular_name %>]
             format.html { 
-              flash[:notice] = t("scaffold.updated", :model=>t("kryptonite.<%= plural_name %>.singular_name_cap"))
+              flash[:notice] = t("scaffold_updated", :model=>t("kryptonite.<%= plural_name %>.singular_name_cap"))
               redirect_to kryptonite_<%= @plural_route %>_path
             }
             format.json { respond_with_bip(@<%= singular_name %>) }
           else
             format.html { 
-              flash.now[:warning] = t("scaffold.problems_updating", :model=>t("kryptonite.<%= plural_name %>.singular_name_down"))
+              flash.now[:warning] = t("scaffold_problems_updating", :model=>t("kryptonite.<%= plural_name %>.singular_name_down"))
               render :action => :show
             }
             format.json { respond_with_bip(@<%= singular_name %>) }
@@ -68,7 +68,7 @@ module Kryptonite
       @<%= singular_name %> = <%= class_name %>.find params[:id]
 
       @<%= singular_name %>.destroy
-      flash[:notice] = t("scaffold.deleted", :model=>t("kryptonite.<%= plural_name %>.singular_name_cap"))
+      flash[:notice] = t("scaffold_deleted", :model=>t("kryptonite.<%= plural_name %>.singular_name_cap"))
       redirect_to kryptonite_<%= @plural_route %>_path
     end
   

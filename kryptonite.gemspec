@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Alexander Feiglstorfer", "M2Hero"]
-  s.date = "2012-03-29"
+  s.date = "2012-04-04"
   s.description = "Kryptonite is an open-source CMS for Ruby on Rails, originally developed by Spoiled Milk. Extended by Alexander Feiglstorfer."
   s.email = "delooks@gmail.com"
   s.extra_rdoc_files = [
@@ -54,6 +54,7 @@ Gem::Specification.new do |s|
     "lib/generators/kryptonite/scaffold/USAGE",
     "lib/generators/kryptonite/scaffold/scaffold_generator.rb",
     "lib/generators/kryptonite/scaffold/templates/controller.rb",
+    "lib/generators/kryptonite/scaffold/templates/en.yml",
     "lib/generators/kryptonite/scaffold/templates/migration.rb",
     "lib/generators/kryptonite/scaffold/templates/model.rb",
     "lib/generators/kryptonite/scaffold/templates/views/_form.html.erb",
@@ -104,15 +105,18 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<kryptonite>, [">= 0"])
       s.add_runtime_dependency(%q<will_paginate>, ["= 3.0.0"])
       s.add_runtime_dependency(%q<authlogic>, ["= 3.0.3"])
+      s.add_runtime_dependency(%q<best_in_place>, ["= 1.0.6"])
     else
       s.add_dependency(%q<kryptonite>, [">= 0"])
       s.add_dependency(%q<will_paginate>, ["= 3.0.0"])
       s.add_dependency(%q<authlogic>, ["= 3.0.3"])
+      s.add_dependency(%q<best_in_place>, ["= 1.0.6"])
     end
   else
     s.add_dependency(%q<kryptonite>, [">= 0"])
     s.add_dependency(%q<will_paginate>, ["= 3.0.0"])
     s.add_dependency(%q<authlogic>, ["= 3.0.3"])
+    s.add_dependency(%q<best_in_place>, ["= 1.0.6"])
   end
 end
 

@@ -1,5 +1,7 @@
 en:
-    singular_name_down: <%= singular_name.humanize.downcase %>
-    singular_name_cap: <%= singular_name.humanize.capitalize %>
-    plural_name_down: <%= plural_name.humanize.downcase %>
-    plural_name_cap: <%= plural_name.humanize.capitalize %>
+    kryptonite:
+        <%= plural_name.humanize.downcase %>:
+            singular_name_down: <%= singular_name.humanize.downcase %>
+            singular_name_cap: <%= singular_name.humanize.capitalize %>
+            plural_name_down: <%= plural_name.humanize.downcase %>
+            plural_name_cap: <%= plural_name.humanize.capitalize %>
