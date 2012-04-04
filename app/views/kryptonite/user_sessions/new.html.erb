@@ -25,24 +25,24 @@
 
 	<div class="text" style="margin-bottom:10px;">
 		<p>
-			<%= f.label :login, "Login:" %>
+			<%= f.label :login, "#{t(:login)}:" %>
 		  <%= f.text_field :login, :class => "kryptoniteTextField" %>
 		</p>
 	</div>
 
 	<div class="text">
 		<p>
-			<%= f.label :password, "Password:" %>
+			<%= f.label :password, "#{t(:password)}:" %>
 		  <%= f.password_field :password, :class => "kryptoniteTextField" %>
 		</p>
 	</div>
 	
 	<div class="submit_remember">
 		<p>
-			<%= f.check_box :remember_me %> Remember me
+			<%= f.check_box :remember_me %> <%=t :remember_me %>
 			<br /><br />
-			<%= f.submit "Log in", :class => "kryptoniteSubmit" %>
-			<input type="button" value="Forgotten password?" class="kryptoniteSubmitBlue" onclick="toggleDiv('recover');" />
+			<%= f.submit t(:do_login), :class => "kryptoniteSubmit" %>
+			<input type="button" value="<%= t(:forgotten_password) %>" class="kryptoniteSubmitBlue" onclick="toggleDiv('recover');" />
 		</p>
 	</div>
 
@@ -53,13 +53,13 @@
 	
 		<div class="text">
 			<p>
-				<%= label_tag :recover_email, "Email:" %>
+				<%= label_tag :recover_email, "#{t(:email)}:" %>
 				<%= text_field_tag :recover_email, params[:recover_email], :class => "kryptoniteTextField" %>
 			</p>
 		</div>
 		<div class="submit_remember">
 			<p>
-				<%= submit_tag "Reset", :class => "kryptoniteSubmit" %>
+				<%= submit_tag t(:do_reset), :class => "kryptoniteSubmit" %>
 			</p>
 		</div>
 	</div>

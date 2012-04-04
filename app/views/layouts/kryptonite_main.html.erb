@@ -21,10 +21,10 @@
 			<div id="dashboard">
 				<% if @session_user != nil %>
 				<ul>
-					<li>Hello <%= @session_user.name %></li>
+					<li><%=t :hello_user, :user=>@session_user.name %></li>
 					<li><%= Time.zone.name %></li>
-					<li><%= link_to 'Profile', kryptonite_user_path(@session_user) %></li>
-					<li class="lastItem"><%= link_to 'Logout', kryptonite_user_session_path, :method => :delete %></li>
+					<li><%= link_to t(:profile), kryptonite_user_path(@session_user) %></li>
+					<li class="lastItem"><%= link_to t(:logout), kryptonite_user_session_path, :method => :delete %></li>
 				</ul>	
 				<% end %>
 			</div>
@@ -36,7 +36,7 @@
 			<div id="altNavigation">
 				<ul>
 					<% if @session_user.is_admin? %>
-						<li><%= link_to 'Users', kryptonite_users_path %></li>
+						<li><%= link_to t(:users), kryptonite_users_path %></li>
 					<% end %>
 					<%= render :partial => '/kryptonite/layouts/right_navigation' %>
 				</ul>

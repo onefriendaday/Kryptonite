@@ -20,6 +20,7 @@ module Kryptonite
     def generate_files
       @plural_route = (plural_name != singular_name) ? plural_name : "#{plural_name}_index"
       
+      template 'en.yml', "config/locales/kryptonite/#{plural_name}/en.yml"
       template 'controller.rb', "app/controllers/kryptonite/#{plural_name}_controller.rb"
       template 'views/index.html.erb', "app/views/kryptonite/#{plural_name}/index.html.erb"
       template 'views/show.html.erb', "app/views/kryptonite/#{plural_name}/show.html.erb"

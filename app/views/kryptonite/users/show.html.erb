@@ -20,7 +20,7 @@
 
 	<% if @session_user.is_admin? && (@kryptonite_user.is_admin? == false || Kryptonite::User.has_more_than_one_admin) %>
 		<div class="tfContainer">
-			<%= kryptonite_select f, f.object, :access_level, kryptonite_get_access_level_array, {:kryptonite_label => "Status"} %>
+			<%= kryptonite_select f, f.object, :access_level, kryptonite_get_access_level_array, {:kryptonite_label => t(:status)} %>
 		</div>
 		<div class="tfContainer tfContainerSecond">
 		</div>
@@ -29,41 +29,41 @@
 	<div class="clearer"></div>
 
 	<p class="submits">
-	  <%= link_to 'Cancel', kryptonite_users_path, :class => 'cancel' %> or
-		<%= f.submit "Save changes", :class => "update" %>
+	  <%= link_to t(:cancel), kryptonite_users_path, :class => 'cancel' %> or
+		<%= f.submit t(:save_changes), :class => "update" %>
 	</p>
 <% end %>
 
 <% if @session_user.is_admin? %>
 
-	<h2>Reset password (admin action - use carefully)</h2>
+	<h2><%=t :reset_password_title %></h2>
 
 	<%= form_for @kryptonite_user, :url => reset_password_kryptonite_user_path(@kryptonite_user) do |f| %>
 
 		<div class="tfContainer">
-			<%= kryptonite_password_field f, f.object, :password, {:kryptonite_label => "New password"} %>
+			<%= kryptonite_password_field f, f.object, :password, {:kryptonite_label => t(:new_password)} %>
 		</div>
 		
 		<div class="tfContainer tfContainerSecond">
-			<%= kryptonite_password_field f, f.object, :password_confirmation, {:kryptonite_label => "Repeat password"} %>
+			<%= kryptonite_password_field f, f.object, :password_confirmation, {:kryptonite_label => t(:confirm_password)} %>
 		</div>
 	
 		<div class="clearer"></div>
 	
 		<p class="submits">
-			<%= f.submit "Reset", :class => "update" %>
+			<%= f.submit t(:do_reset), :class => "update" %>
 		</p>
 		
 	<% end %>
 	
 <% elsif @session_user.id == @kryptonite_user.id %>
 
-	<h2>Change password</h2>
+	<h2><%=t :change_password %></h2>
 
 	<%= form_for @kryptonite_user, :url => update_password_kryptonite_user_path(@kryptonite_user) do |f| %>
 
 		<div class="tfContainer">
-			<p><%= label_tag :form_current_password, "Current password" %></p>
+			<p><%= label_tag :form_current_password, t(:current_password) %></p>
 			<p><%= password_field_tag :form_current_password, "", {:class => 'kryptoniteTextField'} %></p>
 		</div>
 
@@ -71,17 +71,17 @@
 		</div>
 
 		<div class="tfContainer">
-			<%= kryptonite_password_field f, f.object, :password, {:kryptonite_label => "New password"} %>
+			<%= kryptonite_password_field f, f.object, :password, {:kryptonite_label => t(:new_password)} %>
 		</div>
 		
 		<div class="tfContainer tfContainerSecond">
-			<%= kryptonite_password_field f, f.object, :password_confirmation, {:kryptonite_label => "Repeat password"} %>
+			<%= kryptonite_password_field f, f.object, :password_confirmation, {:kryptonite_label => t(:confirm_password)} %>
 		</div>
 
 		<div class="clearer"></div>
 
 		<p class="submits">
-			<%= f.submit "Change", :class => "update" %>
+			<%= f.submit t(:change), :class => "update" %>
 		</p>
 
 	<% end %>
@@ -89,6 +89,6 @@
 
 <%= content_for :sidebar do %>
 	<% if @session_user.is_admin? %>
-  	<li><%= link_to "#{kryptonite_show_icon('table')}Back to list".html_safe, kryptonite_users_path %></li>
+  	<li><%= link_to "#{kryptonite_show_icon('table')}#{t(:back_to_list)}".html_safe, kryptonite_users_path %></li>
 	<% end %>
 <% end %>

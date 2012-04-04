@@ -1,10 +1,10 @@
-<h2>Users</h2>
+<h2><%=t :users %></h2>
 
 <table cellpadding="0" cellspacing="0" id="itemList" class="itemList">
 	<tr>
-		<th>Login</th>
-		<th>Name</th>
-		<th>Status</th>
+		<th><%=t :login %></th>
+		<th><%=t :name %></th>
+		<th><%=t :status %></th>
 		<th>&nbsp;</th>
 	</tr>
 	
@@ -15,10 +15,10 @@
 			<td><%= kryptonite_table_cell_link kryptonite_get_access_level_text(user.access_level), kryptonite_user_path(user) %></td>
 			<td class="delete">
 				<% if user.is_admin? == false || Kryptonite::User.has_more_than_one_admin %>
-					<% confirm_message = "Are you sure you want to delete #{user.name}?" %>
+					<% confirm_message = t(:delete_user_confirm, :user=>user.name) %>
 			
 					<% if user.id == @session_user.id %>
-						<% confirm_message += "\n\nWARNING: This is your user account. You will be logged out if you proceed." %>
+						<% confirm_message += t(:warning_delete_admin) %>
 					<% end %>
 				
 					<%= link_to(kryptonite_show_row_icon("delete"), kryptonite_user_path(user), :method => :delete, :confirm => confirm_message) %>
@@ -31,5 +31,5 @@
 <%= will_paginate @users %>
 
 <%= content_for :sidebar do %>
-  <li><%= link_to "#{kryptonite_show_icon('add')}Add a new user".html_safe, new_kryptonite_user_path %></li>
+  <li><%= link_to "#{kryptonite_show_icon('add')}#{t(:add_new_user)}".html_safe, new_kryptonite_user_path %></li>
 <% end %>

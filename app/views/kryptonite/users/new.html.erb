@@ -1,4 +1,4 @@
-<h2>Add a new user</h2>
+<h2><%=t :add_new_user %></h2>
 
 <%= form_for @kryptonite_user do |form| %>
 
@@ -19,28 +19,28 @@
 	</div>
 	
 	<div class="tfContainer">
-		<%= kryptonite_select form, @kryptonite_user, :access_level, kryptonite_get_access_level_array, {:kryptonite_label => "Status"} %>
+		<%= kryptonite_select form, @kryptonite_user, :access_level, kryptonite_get_access_level_array, {:kryptonite_label => t(:status)} %>
 	</div>
 
 	<div class="tfContainer tfContainerSecond">
 	</div>
 
 	<div class="tfContainer">
-		<%= kryptonite_password_field form, @kryptonite_user, :password, {:kryptonite_label => "Password"} %>
+		<%= kryptonite_password_field form, @kryptonite_user, :password, {:kryptonite_label => t(:password)} %>
 	</div>
 	
 	<div class="tfContainer tfContainerSecond">
-		<%= kryptonite_password_field form, @kryptonite_user, :password_confirmation, {:kryptonite_label => "Repeat password"} %>
+		<%= kryptonite_password_field form, @kryptonite_user, :password_confirmation, {:kryptonite_label => t(:confirm_password)} %>
 	</div>
 
 	<div class="clearer"></div>
 
 	<p class="submits">
-		<%= form.submit "Add new user", :class => "update" %>
+		<%= form.submit t(:add_new_user), :class => "update" %>
 	</p>
 
 <% end %>
 
 <%= content_for :sidebar do %>
-  <li><%= link_to "#{kryptonite_show_icon('table')}Back to list".html_safe, kryptonite_users_path %></li>
+  <li><%= link_to "#{kryptonite_show_icon('table')}#{t(:back_to_list)}".html_safe, kryptonite_users_path %></li>
 <% end %>
