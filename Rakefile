@@ -34,6 +34,7 @@ begin
     gem.homepage = "http://github.com/onefriendaday/Kryptonite"
     gem.add_dependency("will_paginate", ["3.0.0"])
     gem.add_dependency("authlogic", ["3.0.3"])
+    gem.add_dependency("best_in_place", ["1.0.6"])
   end
 rescue
   puts "Jeweler or one of its dependencies is not installed."
