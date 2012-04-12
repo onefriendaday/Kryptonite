@@ -33,6 +33,10 @@ Coming
     :authentication => :login
   }
 
+- Put the autoload paths in your application.rb
+
+	config.autoload_paths += %W(#{config.root}/lib)
+
 — Install Kryptonite configuration files into your project. This should not be run more than once without backing up or merging the generated files, as your customisations will be overwritten:
 
   rails g kryptonite:install

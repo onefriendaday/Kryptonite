@@ -16,6 +16,8 @@ module Kryptonite
     helper_method :current_user_session, :current_user
     before_filter :authorise
     before_filter :set_time_zone
+    before_filter :get_uploaded_file
+    after_filter :destroy_uploaded_file
     
     ActionView::Base.field_error_proc = proc { |input, instance| "<span class='formError'>#{input}</span>".html_safe }
 
@@ -29,7 +31,31 @@ module Kryptonite
 
   private
   
-    def authorise    
+    def get_uploaded_file
+      if params.has_key?(:qqfile)
+        if params[:browser]=="opera"
+          @tempname = params[:qqfile].original_filename
+          file_content = File.open("#{Rails.root.to_s}/tmp/#{@tempname}", "wb") do |f| 
+            f.write(params[:qqfile].read)
+          end
+        else
+          @tempname = request.env['HTTP_X_FILE_NAME']
+          file_content = File.open("#{Rails.root.to_s}/tmp/#{@tempname}", "wb") do |f| 
+            f.write(request.env['rack.input'].read)
+          end
+        end
+        @file = File.new("#{Rails.root.to_s}/tmp/#{@tempname}")
+        #filename = "#{Rails.root.to_s}/tmp/#{tempname}"
+      end
+    end
+    
+    def destroy_uploaded_file
+      if params.has_key?(:qqfile)
+        File.unlink("#{Rails.root.to_s}/tmp/#{@tempname}")
+      end
+    end
+  
+    def authorise
       unless current_user
         session[:return_to] = request.fullpath
         redirect_to new_kryptonite_user_session_url

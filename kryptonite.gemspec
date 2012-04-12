@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "kryptonite"
-  s.version = "0.0.1"
+  s.version = "0.0.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Alexander Feiglstorfer", "M2Hero"]
-  s.date = "2012-04-04"
+  s.date = "2012-04-12"
   s.description = "Kryptonite is an open-source CMS for Ruby on Rails, originally developed by Spoiled Milk. Extended by Alexander Feiglstorfer."
   s.email = "delooks@gmail.com"
   s.extra_rdoc_files = [
@@ -68,6 +68,7 @@ Gem::Specification.new do |s|
     "lib/generators/kryptonite/update/templates/public/kryptonite/images/icons/delete.png",
     "lib/generators/kryptonite/update/templates/public/kryptonite/images/icons/table.png",
     "lib/generators/kryptonite/update/templates/public/kryptonite/images/kryptonite.png",
+    "lib/generators/kryptonite/update/templates/public/kryptonite/images/loading.gif",
     "lib/generators/kryptonite/update/templates/public/kryptonite/images/login/alertBg.png",
     "lib/generators/kryptonite/update/templates/public/kryptonite/images/login/background.png",
     "lib/generators/kryptonite/update/templates/public/kryptonite/images/login/bottom.png",
@@ -81,11 +82,13 @@ Gem::Specification.new do |s|
     "lib/generators/kryptonite/update/templates/public/kryptonite/images/rightNav.png",
     "lib/generators/kryptonite/update/templates/public/kryptonite/images/rightNavButton.png",
     "lib/generators/kryptonite/update/templates/public/kryptonite/images/visitSiteNav.png",
+    "lib/generators/kryptonite/update/templates/public/kryptonite/javascripts/fileuploader.js",
     "lib/generators/kryptonite/update/templates/public/kryptonite/javascripts/jquery.js",
     "lib/generators/kryptonite/update/templates/public/kryptonite/javascripts/kryptonite.js",
     "lib/generators/kryptonite/update/templates/public/kryptonite/javascripts/login.js",
     "lib/generators/kryptonite/update/templates/public/kryptonite/javascripts/rails.js",
     "lib/generators/kryptonite/update/templates/public/kryptonite/stylesheets/elements.css",
+    "lib/generators/kryptonite/update/templates/public/kryptonite/stylesheets/fileuploader.css",
     "lib/generators/kryptonite/update/templates/public/kryptonite/stylesheets/login.css",
     "lib/generators/kryptonite/update/templates/public/kryptonite/stylesheets/screen.css",
     "lib/generators/kryptonite/update/update_generator.rb",
@@ -106,17 +109,20 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<will_paginate>, ["= 3.0.0"])
       s.add_runtime_dependency(%q<authlogic>, ["= 3.0.3"])
       s.add_runtime_dependency(%q<best_in_place>, ["= 1.0.6"])
+      s.add_runtime_dependency(%q<paperclip>, ["= 2.7.0"])
     else
       s.add_dependency(%q<kryptonite>, [">= 0"])
       s.add_dependency(%q<will_paginate>, ["= 3.0.0"])
       s.add_dependency(%q<authlogic>, ["= 3.0.3"])
       s.add_dependency(%q<best_in_place>, ["= 1.0.6"])
+      s.add_dependency(%q<paperclip>, ["= 2.7.0"])
     end
   else
     s.add_dependency(%q<kryptonite>, [">= 0"])
     s.add_dependency(%q<will_paginate>, ["= 3.0.0"])
     s.add_dependency(%q<authlogic>, ["= 3.0.3"])
     s.add_dependency(%q<best_in_place>, ["= 1.0.6"])
+    s.add_dependency(%q<paperclip>, ["= 2.7.0"])
   end
 end
 
