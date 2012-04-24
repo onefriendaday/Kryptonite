@@ -2,6 +2,8 @@
 
 Coming
 
+=Frontline editing
+
 To redirect login from frontpage use "?frontend=true" in your url.
 
 
