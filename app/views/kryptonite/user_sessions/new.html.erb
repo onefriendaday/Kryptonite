@@ -40,6 +40,7 @@
 	<div class="submit_remember">
 		<p>
 			<%= f.check_box :remember_me %> <%=t :remember_me %>
+			<%= hidden_field_tag :frontend, params[:frontend] %>
 			<br /><br />
 			<%= f.submit t(:do_login), :class => "kryptoniteSubmit" %>
 			<input type="button" value="<%= t(:forgotten_password) %>" class="kryptoniteSubmitBlue" onclick="toggleDiv('recover');" />

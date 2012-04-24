@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "kryptonite"
-  s.version = "0.0.4"
+  s.version = "0.0.5"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Alexander Feiglstorfer", "M2Hero"]
-  s.date = "2012-04-12"
+  s.date = "2012-04-24"
   s.description = "Kryptonite is an open-source CMS for Ruby on Rails, originally developed by Spoiled Milk. Extended by Alexander Feiglstorfer."
   s.email = "delooks@gmail.com"
   s.extra_rdoc_files = [
